@@ -10,7 +10,6 @@ class Vingle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.amberAccent),
       home: HomeScreen(),
     );
   }
@@ -21,8 +20,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
-      appBar: AppBar(),
+      backgroundColor: Color(0xffF6F1F1),
     );
   }
 }
