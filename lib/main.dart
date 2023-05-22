@@ -7,9 +7,11 @@ main() {
 }
 
 class Vingle extends StatelessWidget {
+  const Vingle({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: SplashScreen(),
     );
   }

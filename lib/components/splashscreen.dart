@@ -4,15 +4,45 @@ class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-        child: Scaffold(
-            backgroundColor: Color(0xffF6F1F1),
-            body: Text(
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/images/spalshgirl.png',
+              height: 250,
+              width: 300,
+              alignment: Alignment.topLeft,
+            ),
+            const Text(
               "vingle",
+              textAlign: TextAlign.center,
               style: TextStyle(
-                  fontSize: 64,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Pangolin'),
-            )));
+                  fontSize: 70,
+                  fontWeight: FontWeight.w200,
+                  fontFamily: 'Ysabeau'),
+            ),
+            Container(
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(right: 50),
+              child: const Text(
+                "find,if it is far",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w200,
+                  fontFamily: 'Ysabeau',
+                ),
+              ),
+            ),
+            Image.asset(
+              'assets/images/splashmen.png',
+              height: 250,
+              width: 300,
+              alignment: Alignment.bottomRight,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
