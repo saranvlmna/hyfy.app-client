@@ -1,4 +1,4 @@
-# vingle_app_client
+# vingle
 
 A new Flutter project.
 

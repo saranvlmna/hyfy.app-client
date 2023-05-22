@@ -4,10 +4,15 @@ class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
         child: Scaffold(
-      backgroundColor: const Color(0xffF6F1F1),
-      drawer: Drawer(child: Column(children: const [Text('vingle')])),
-    ));
+            backgroundColor: Color(0xffF6F1F1),
+            body: Text(
+              "vingle",
+              style: TextStyle(
+                  fontSize: 64,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Pangolin'),
+            )));
   }
 }

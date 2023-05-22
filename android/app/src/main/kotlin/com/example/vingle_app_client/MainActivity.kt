@@ -1,4 +1,4 @@
-package com.example.vingle_app_client
+package com.example.vingle
 
 import io.flutter.embedding.android.FlutterActivity
 
