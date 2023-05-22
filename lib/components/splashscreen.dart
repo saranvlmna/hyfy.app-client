@@ -1,7 +1,18 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import '../main.dart';
+import 'authScreen.dart';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+class SplashScreen extends State<VingleApp> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+        const Duration(seconds: 2),
+        () => Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const AuthScreen())));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
