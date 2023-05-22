@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:vingle/components/splashscreen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Vingle());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Vingle extends StatelessWidget {
+  const Vingle({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
 
 class VingleApp extends StatefulWidget {
   const VingleApp({super.key});
-
   @override
   SplashScreen createState() => SplashScreen();
 }

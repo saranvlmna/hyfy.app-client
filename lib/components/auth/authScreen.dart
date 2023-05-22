@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
 
