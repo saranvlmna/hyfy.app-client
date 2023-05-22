@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.vingle_app_client">
+    package="com.example.vingle">
    <application
-        android:label="vingle_app_client"
+        android:label="vingle"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

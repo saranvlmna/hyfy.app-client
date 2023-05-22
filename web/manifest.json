@@ -1,6 +1,6 @@
 {
-    "name": "vingle_app_client",
-    "short_name": "vingle_app_client",
+    "name": "vingle",
+    "short_name": "vingle",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
