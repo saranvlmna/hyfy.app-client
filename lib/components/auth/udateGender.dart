@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:vingle/components/auth/authScreen.dart';
-import 'package:vingle/components/auth/otpVerify.dart';
 
 class UpdateGenderScreen extends StatelessWidget {
   const UpdateGenderScreen({super.key});
