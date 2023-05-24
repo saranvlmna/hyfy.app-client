@@ -61,7 +61,7 @@ class AuthScreen extends StatelessWidget {
                   elevation: 20.0,
                 ),
                 child: const Text(
-                  'Signup with Google ',
+                  'Google signin',
                   style: TextStyle(color: Color(0xffCB3333)),
                 ),
               ),
