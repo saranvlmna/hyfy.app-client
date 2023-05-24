@@ -11,28 +11,62 @@ class AuthScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              padding: const EdgeInsets.only(top: 30, bottom: 20, right: 100),
-              child: const Text(
-                " Continue with",
-                style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.w200,
-                    fontFamily: 'Ysabeau'),
+            Expanded(
+              child: Column(
+                children: [
+                  const Text(
+                    " Continue with",
+                    style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.w200,
+                        fontFamily: 'Ysabeau'),
+                    textAlign: TextAlign.start,
+                  ),
+                  Container(height: 50.0),
+                  Image.asset(
+                    'assets/images/authimg.png',
+                    height: 250,
+                    width: 300,
+                  ),
+                ],
               ),
             ),
-            Center(
-              child: Image.asset(
-                'assets/images/authimg.png',
-                height: 250,
-                width: 300,
-                alignment: Alignment.topLeft,
+            SizedBox(
+              width: 230,
+              height: 55,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  backgroundColor: const Color.fromARGB(255, 246, 246, 246),
+                  elevation: 20.0,
+                ),
+                child: const Text(
+                  'Phone number',
+                  style: TextStyle(color: Color(0xffCB3333)),
+                ),
               ),
             ),
-            Container(
-              child: const Text("Google SignIn"),
+            Container(height: 20.0),
+            SizedBox(
+              width: 230,
+              height: 55,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  backgroundColor: const Color.fromARGB(255, 246, 246, 246),
+                  elevation: 20.0,
+                ),
+                child: const Text(
+                  'Signup with Google ',
+                  style: TextStyle(color: Color(0xffCB3333)),
+                ),
+              ),
             ),
-            Container(child: Text("Mobile SignIn")),
+            Container(height: 50.0),
           ],
         ),
       ),
