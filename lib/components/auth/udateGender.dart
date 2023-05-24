@@ -1,11 +1,11 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:vingle/components/auth/authScreen.dart';
+import 'package:vingle/components/auth/otpVerify.dart';
 
-import 'updateNameScreen.dart';
-
-class OtpVerifyScreen extends StatelessWidget {
-  const OtpVerifyScreen({super.key});
+class UpdateGenderScreen extends StatelessWidget {
+  const UpdateGenderScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,22 +13,25 @@ class OtpVerifyScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Container(height: 40.0),
             Expanded(
               child: Column(
                 children: [
-                  const Text(
-                    "00:42",
-                    style: TextStyle(
-                        fontSize: 60,
-                        fontWeight: FontWeight.w200,
-                        fontFamily: 'Ysabeau'),
-                    textAlign: TextAlign.start,
-                  ),
                   Container(height: 60.0),
-                  const Text('Type the verification code'),
-                  const Text('we’ve sent you')
+                  Image.asset(
+                    'assets/images/updategender.png',
+                    height: 250,
+                    width: 300,
+                    alignment: Alignment.topRight,
+                  ),
                 ],
+                // const Text(
+                //   "Gender",
+                //   style: TextStyle(
+                //       fontSize: 30,
+                //       fontWeight: FontWeight.w200,
+                //       fontFamily: 'Ysabeau'),
+                //   textAlign: TextAlign.start,
+                // ),
               ),
             ),
             SizedBox(
@@ -39,7 +42,7 @@ class OtpVerifyScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const UpdateNameScreen()));
+                          builder: (context) => const AuthScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -48,7 +51,7 @@ class OtpVerifyScreen extends StatelessWidget {
                   elevation: 20.0,
                 ),
                 child: const Text(
-                  'Verify',
+                  'Next',
                   style: TextStyle(color: Color(0xffCB3333)),
                 ),
               ),

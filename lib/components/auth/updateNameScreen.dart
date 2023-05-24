@@ -1,11 +1,10 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:vingle/components/auth/udateGender.dart';
 
-import 'updateNameScreen.dart';
-
-class OtpVerifyScreen extends StatelessWidget {
-  const OtpVerifyScreen({super.key});
+class UpdateNameScreen extends StatelessWidget {
+  const UpdateNameScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +17,19 @@ class OtpVerifyScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const Text(
-                    "00:42",
+                    " I'm ",
                     style: TextStyle(
-                        fontSize: 60,
+                        fontSize: 30,
                         fontWeight: FontWeight.w200,
                         fontFamily: 'Ysabeau'),
                     textAlign: TextAlign.start,
                   ),
                   Container(height: 60.0),
-                  const Text('Type the verification code'),
-                  const Text('we’ve sent you')
+                  Image.asset(
+                    'assets/images/updatename.png',
+                    height: 250,
+                    width: 300,
+                  ),
                 ],
               ),
             ),
@@ -39,7 +41,7 @@ class OtpVerifyScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const UpdateNameScreen()));
+                          builder: (context) => const UpdateGenderScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -48,7 +50,7 @@ class OtpVerifyScreen extends StatelessWidget {
                   elevation: 20.0,
                 ),
                 child: const Text(
-                  'Verify',
+                  'Name',
                   style: TextStyle(color: Color(0xffCB3333)),
                 ),
               ),

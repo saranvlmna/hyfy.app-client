@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:vingle/components/auth/otpVerify.dart';
-import 'package:vingle/components/user/updateMobile.dart';
+import 'package:vingle/components/auth/updateMobile.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -13,13 +13,14 @@ class AuthScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            Container(height: 40.0),
             Expanded(
               child: Column(
                 children: [
                   const Text(
                     " Continue with",
                     style: TextStyle(
-                        fontSize: 40,
+                        fontSize: 30,
                         fontWeight: FontWeight.w200,
                         fontFamily: 'Ysabeau'),
                     textAlign: TextAlign.start,

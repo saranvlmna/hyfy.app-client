@@ -17,7 +17,7 @@ class UpdateMobileScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const Text(
-                    " Your phone number",
+                    "Update phone number",
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w200,
@@ -50,7 +50,7 @@ class UpdateMobileScreen extends StatelessWidget {
                   elevation: 20.0,
                 ),
                 child: const Text(
-                  'Phone number',
+                  'phone number',
                   style: TextStyle(color: Color(0xffCB3333)),
                 ),
               ),

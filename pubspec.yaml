@@ -65,6 +65,8 @@ flutter:
     - assets/images/splashmen.png
     - assets/images/authimg.png
     - assets/images/updatemobile.png
+    - assets/images/updatename.png
+    - assets/images/updategender.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
