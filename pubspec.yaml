@@ -69,6 +69,7 @@ flutter:
     - assets/images/updategender.png
     - assets/images/genderfemale.png
     - assets/images/gendermale.png
+    - assets/images/girllove.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
