@@ -1,10 +1,10 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:vingle/components/auth/displayedGender.dart';
+import 'package:vingle/components/auth/authScreen.dart';
 
-class UpdateGenderScreen extends StatelessWidget {
-  const UpdateGenderScreen({super.key});
+class DisplayedGenderScreen extends StatelessWidget {
+  const DisplayedGenderScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,25 +12,27 @@ class UpdateGenderScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Container(height: 60.0),
-                              const Text(
-                    "What is your gender",
+            Container(height: 40.0),
+            Expanded(
+              child: Column(
+                children: [
+                  const Text(
+                    "Who would you",
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w200,
                         fontFamily: 'Ysabeau'),
                     textAlign: TextAlign.start,
                   ),
-            Expanded(
-              child: Column(
-                children: [
-                  Container(height: 60.0),
-                  Image.asset(
-                    'assets/images/updategender.png',
-                    height: 250,
-                    width: 300,
-                    alignment: Alignment.topRight,
+                  const Text(
+                    "like date",
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w200,
+                        fontFamily: 'Ysabeau'),
+                    textAlign: TextAlign.start,
                   ),
+                  Container(height: 300.0),
                   Row(
                     children: [
                       IconButton(
@@ -46,7 +48,7 @@ class UpdateGenderScreen extends StatelessWidget {
                         onPressed: () {},
                       )
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
@@ -58,7 +60,7 @@ class UpdateGenderScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const DisplayedGenderScreen()));
+                          builder: (context) => const AuthScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -72,7 +74,8 @@ class UpdateGenderScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Container(height: 60.0),
+            Container(height: 20.0),
+            Container(height: 50.0),
           ],
         ),
       ),
