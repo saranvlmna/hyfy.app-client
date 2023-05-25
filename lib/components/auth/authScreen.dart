@@ -35,8 +35,8 @@ class AuthScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 230,
-              height: 55,
+              width: 260,
+              height: 35,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -58,8 +58,8 @@ class AuthScreen extends StatelessWidget {
             ),
             Container(height: 20.0),
             SizedBox(
-              width: 230,
-              height: 55,
+              width: 260,
+              height: 35,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(

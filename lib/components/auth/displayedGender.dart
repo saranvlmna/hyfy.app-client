@@ -32,18 +32,32 @@ class DisplayedGenderScreen extends StatelessWidget {
                         fontFamily: 'Ysabeau'),
                     textAlign: TextAlign.start,
                   ),
-                  Container(height: 300.0),
+                  Image.asset(
+                    'assets/images/girllove.png',
+                    height: 250,
+                    width: 300,
+                    alignment: Alignment.topRight,
+                  ),
+                  Container(height: 80.0),
                   Row(
                     children: [
                       IconButton(
-                        icon: Image.asset('assets/images/gendermale.png'),
+                        icon: const Text('male',
+                            style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w200,
+                                fontFamily: 'Ysabeau')),
                         iconSize: 100,
                         onPressed: () {},
                         padding: const EdgeInsets.only(left: 40),
                       ),
                       const Padding(padding: EdgeInsets.only(left: 50)),
                       IconButton(
-                        icon: Image.asset('assets/images/genderfemale.png'),
+                        icon: const Text('female',
+                            style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w200,
+                                fontFamily: 'Ysabeau')),
                         iconSize: 100,
                         onPressed: () {},
                       )
@@ -53,8 +67,8 @@ class DisplayedGenderScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 230,
-              height: 55,
+              width: 260,
+              height: 35,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(

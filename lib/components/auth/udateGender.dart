@@ -13,14 +13,14 @@ class UpdateGenderScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(height: 60.0),
-                              const Text(
-                    "What is your gender",
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w200,
-                        fontFamily: 'Ysabeau'),
-                    textAlign: TextAlign.start,
-                  ),
+            const Text(
+              "What is your gender",
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w200,
+                  fontFamily: 'Ysabeau'),
+              textAlign: TextAlign.start,
+            ),
             Expanded(
               child: Column(
                 children: [
@@ -51,8 +51,8 @@ class UpdateGenderScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 230,
-              height: 55,
+              width: 260,
+              height: 35,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(

@@ -32,8 +32,8 @@ class OtpVerifyScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 230,
-              height: 55,
+              width: 260,
+              height: 35,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(
