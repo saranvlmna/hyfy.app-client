@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:vingle/components/auth/otpVerify.dart';
+import 'package:vingle/components/auth/authScreen.dart';
 
 class UpdateDobScreen extends StatelessWidget {
   const UpdateDobScreen({super.key});
@@ -36,13 +36,8 @@ class UpdateDobScreen extends StatelessWidget {
 
                   Container(
                     alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(left: 30, top: 25),
-                    // color: Colors.green,
-                    // child: SizedBox(
+                    padding: EdgeInsets.only(left: 30, top: 30),
                     child: IconButton(
-                      // splashColor:Color.fromARGB(255, 196, 104, 121),
-                      // hoverColor:Color(0xffD2576D),
-                      // disabledColor:Colors.black,
                       color: const Color(0xffD2576D),
                       hoverColor: const Color(0xffD2576D),
                       highlightColor: const Color.fromARGB(255, 165, 121, 121),
@@ -51,9 +46,9 @@ class UpdateDobScreen extends StatelessWidget {
                       icon: const Text(
                         'Select date',
                         style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w900,
-                        ),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                            fontFamily: 'BrunoAceSC'),
                       ),
                       iconSize: 100,
                       onPressed: () async {
@@ -112,7 +107,7 @@ class UpdateDobScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const OtpVerifyScreen()));
+                          builder: (context) => const AuthScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

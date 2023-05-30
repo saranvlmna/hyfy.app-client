@@ -32,7 +32,7 @@ class SplashScreen extends State<VingleApp> {
               ),
             ),
             const Text(
-              "vingle",
+              "hyfy",
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 70,

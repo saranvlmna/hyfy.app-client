@@ -87,6 +87,9 @@ flutter:
     - family: Ysabeau
       fonts:
         - asset: assets/fonts/Ysabeau-Italic-VariableFont_wght.ttf
+    - family: BrunoAceSC
+      fonts:
+        - asset: assets/fonts/BrunoAceSC-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
