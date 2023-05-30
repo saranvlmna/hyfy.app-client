@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:vingle/components/auth/authScreen.dart';
+import 'package:vingle/components/auth/updateDobScreen.dart';
 
 class DisplayedGenderScreen extends StatelessWidget {
   const DisplayedGenderScreen({super.key});
@@ -74,7 +74,7 @@ class DisplayedGenderScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const AuthScreen()));
+                          builder: (context) => const UpdateDobScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
