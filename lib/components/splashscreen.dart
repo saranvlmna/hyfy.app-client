@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../main.dart';
 import 'auth/authScreen.dart';
 
-class SplashScreen extends State<VingleApp> {
+class SplashScreen extends State<hyfyApp> {
   @override
   void initState() {
     super.initState();

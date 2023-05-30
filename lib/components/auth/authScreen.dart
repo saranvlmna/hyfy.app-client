@@ -1,7 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:vingle/components/auth/updateMobile.dart';
+import 'package:hyfy/components/auth/otpVerify.dart';
+import 'package:hyfy/components/auth/updateMobile.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -61,34 +62,10 @@ class AuthScreen extends StatelessWidget {
               height: 35,
               child: ElevatedButton(
                 onPressed: () async {
-                  // Navigator.pushReplacement(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const OtpVerifyScreen())
-                  // );
-                  await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime.now(),
-                    lastDate: DateTime(2101),
-                    helpText: 'My birthday',
-                    builder: (context, child) {
-                      return Theme(
-                        data: Theme.of(context).copyWith(
-                          colorScheme: const ColorScheme.light(
-                            primary: Colors.white,
-                            onPrimary: Color(0xffD2576D),
-                            onSurface: Colors.black,
-                          ),
-                          textButtonTheme: TextButtonThemeData(
-                            style: TextButton.styleFrom(
-                              foregroundColor: const Color(0xffD2576D),
-                            ),
-                          ),
-                        ),
-                        child: child!,
-                      );
-                    },
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const OtpVerifyScreen())
                   );
                 },
                 style: ElevatedButton.styleFrom(

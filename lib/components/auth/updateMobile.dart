@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:vingle/components/auth/otpVerify.dart';
+import 'package:hyfy/components/auth/otpVerify.dart';
 
 class UpdateMobileScreen extends StatelessWidget {
   const UpdateMobileScreen({super.key});

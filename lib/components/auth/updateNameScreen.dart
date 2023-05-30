@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:vingle/components/auth/udateGender.dart';
+import 'package:hyfy/components/auth/udateGender.dart';
 
 class UpdateNameScreen extends StatelessWidget {
   const UpdateNameScreen({super.key});

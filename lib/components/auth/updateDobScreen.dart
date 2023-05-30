@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:vingle/components/auth/authScreen.dart';
+import 'package:hyfy/components/auth/authScreen.dart';
 
 class UpdateDobScreen extends StatelessWidget {
   const UpdateDobScreen({super.key});

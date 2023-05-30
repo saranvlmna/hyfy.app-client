@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:vingle/components/auth/updateDobScreen.dart';
+import 'package:hyfy/components/auth/updateDobScreen.dart';
 
 class DisplayedGenderScreen extends StatelessWidget {
   const DisplayedGenderScreen({super.key});
