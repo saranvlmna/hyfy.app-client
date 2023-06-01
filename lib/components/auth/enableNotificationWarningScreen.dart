@@ -31,7 +31,7 @@ class EnableNotificationWarningScreen extends StatelessWidget {
                     alignment: Alignment.topRight,
                   ),
                   Container(
-                    padding: EdgeInsets.all(30),
+                    padding: const EdgeInsets.all(30),
                     child: const Text(
                       'Get push-notification when you get the match or receive a message. ',
                       style: TextStyle(

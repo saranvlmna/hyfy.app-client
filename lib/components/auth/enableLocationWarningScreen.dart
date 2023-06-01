@@ -30,7 +30,7 @@ class EnableLocationWarningScreen extends StatelessWidget {
                     alignment: Alignment.topRight,
                   ),
                   Container(
-                    padding: EdgeInsets.all(30),
+                    padding: const EdgeInsets.all(30),
                     child: const Text(
                       'Enable location to know the distance between you and your mate ',
                       style: TextStyle(
