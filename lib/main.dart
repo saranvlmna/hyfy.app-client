@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:hyfy/components/splashscreen.dart';
 
-import 'components/splashscreen.dart';
-
-main() {
-  runApp(Vingle());
+void main() {
+  runApp(const hyfy());
 }
 
-class Vingle extends StatelessWidget {
-  const Vingle({super.key});
+class hyfy extends StatelessWidget {
+  const hyfy({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: SplashScreen(),
+    return MaterialApp(
+      theme: ThemeData(),
+      home: const hyfyApp(),
+      debugShowCheckedModeBanner: false,
     );
   }
+}
+
+class hyfyApp extends StatefulWidget {
+  const hyfyApp({super.key});
+  @override
+  SplashScreen createState() => SplashScreen();
 }

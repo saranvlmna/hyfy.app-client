@@ -1,4 +1,4 @@
-package com.example.vingle
+package com.example.hyfy
 
 import io.flutter.embedding.android.FlutterActivity
 

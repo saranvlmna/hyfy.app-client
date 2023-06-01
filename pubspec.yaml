@@ -1,4 +1,4 @@
-name: vingle
+name: hyfy
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -36,6 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.5
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,16 @@ flutter:
   assets:
     - assets/images/spalshgirl.png
     - assets/images/splashmen.png
+    - assets/images/authimg.png
+    - assets/images/updatemobile.png
+    - assets/images/updatename.png
+    - assets/images/updategender.png
+    - assets/images/genderfemale.png
+    - assets/images/gendermale.png
+    - assets/images/girllove.png
+    - assets/images/enablelocation.png
+    - assets/images/next.png
+    - assets/images/notification.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -79,6 +90,9 @@ flutter:
     - family: Ysabeau
       fonts:
         - asset: assets/fonts/Ysabeau-Italic-VariableFont_wght.ttf
+    - family: BrunoAceSC
+      fonts:
+        - asset: assets/fonts/BrunoAceSC-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

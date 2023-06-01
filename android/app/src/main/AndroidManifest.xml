@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.vingle">
+    package="com.example.hyfy">
    <application
-        android:label="vingle"
+        android:label="hyfy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
