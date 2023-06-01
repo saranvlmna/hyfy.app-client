@@ -30,13 +30,16 @@ class EnableNotificationWarningScreen extends StatelessWidget {
                     'assets/images/notification.png',
                     alignment: Alignment.topRight,
                   ),
-                  const Text(
-                    'Get push-notification when you get the match or receive a message. ',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'Ysabeau'),
-                    textAlign: TextAlign.center,
+                  Container(
+                    padding: EdgeInsets.all(30),
+                    child: const Text(
+                      'Get push-notification when you get the match or receive a message. ',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'Ysabeau'),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   Container(height: 80.0),
                 ],

@@ -29,13 +29,16 @@ class EnableLocationWarningScreen extends StatelessWidget {
                     'assets/images/enablelocation.png',
                     alignment: Alignment.topRight,
                   ),
-                  const Text(
-                    'Enable location to know the distance between you and your mate ',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'Ysabeau'),
-                    textAlign: TextAlign.center,
+                  Container(
+                    padding: EdgeInsets.all(30),
+                    child: const Text(
+                      'Enable location to know the distance between you and your mate ',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'Ysabeau'),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   Container(height: 80.0),
                 ],
