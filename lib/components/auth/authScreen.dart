@@ -39,7 +39,7 @@ class AuthScreen extends StatelessWidget {
               height: 35,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const UpdateMobileScreen()));
@@ -62,11 +62,10 @@ class AuthScreen extends StatelessWidget {
               height: 35,
               child: ElevatedButton(
                 onPressed: () async {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const OtpVerifyScreen())
-                  );
+                          builder: (context) => const OtpVerifyScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

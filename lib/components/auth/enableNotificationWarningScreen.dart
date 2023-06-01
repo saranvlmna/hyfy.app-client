@@ -23,20 +23,22 @@ class EnableNotificationWarningScreen extends StatelessWidget {
                         fontWeight: FontWeight.w200,
                         fontFamily: 'Ysabeau'),
                     textAlign: TextAlign.start,
-                  
                   ),
- Container(height: 40.0),
+                  Container(height: 40.0),
                   Image.asset(
                     'assets/images/notification.png',
                     alignment: Alignment.topRight,
                   ),
-                  const Text(
-                    'Get push-notification when you get the match or receive a message. ',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'Ysabeau'),
-                    textAlign: TextAlign.center,
+                  Container(
+                    padding: const EdgeInsets.all(30),
+                    child: const Text(
+                      'Get push-notification when you get the match or receive a message. ',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'Ysabeau'),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   Container(height: 80.0),
                 ],
@@ -50,7 +52,7 @@ class EnableNotificationWarningScreen extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const HomeScreen()));

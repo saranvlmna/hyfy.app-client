@@ -29,13 +29,16 @@ class EnableLocationWarningScreen extends StatelessWidget {
                     'assets/images/enablelocation.png',
                     alignment: Alignment.topRight,
                   ),
-                  const Text(
-                    'Enable location to know the distance between you and your mate ',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'Ysabeau'),
-                    textAlign: TextAlign.center,
+                  Container(
+                    padding: const EdgeInsets.all(30),
+                    child: const Text(
+                      'Enable location to know the distance between you and your mate ',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'Ysabeau'),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   Container(height: 80.0),
                 ],
@@ -49,10 +52,11 @@ class EnableLocationWarningScreen extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const EnableNotificationWarningScreen()));
+                            builder: (context) =>
+                                const EnableNotificationWarningScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
