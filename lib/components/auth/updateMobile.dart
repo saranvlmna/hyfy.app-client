@@ -38,7 +38,7 @@ class UpdateMobileScreen extends StatelessWidget {
               height: 35,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const OtpVerifyScreen()));

@@ -23,9 +23,8 @@ class EnableNotificationWarningScreen extends StatelessWidget {
                         fontWeight: FontWeight.w200,
                         fontFamily: 'Ysabeau'),
                     textAlign: TextAlign.start,
-                  
                   ),
- Container(height: 40.0),
+                  Container(height: 40.0),
                   Image.asset(
                     'assets/images/notification.png',
                     alignment: Alignment.topRight,
@@ -53,7 +52,7 @@ class EnableNotificationWarningScreen extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const HomeScreen()));

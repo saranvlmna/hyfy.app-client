@@ -52,10 +52,11 @@ class EnableLocationWarningScreen extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const EnableNotificationWarningScreen()));
+                            builder: (context) =>
+                                const EnableNotificationWarningScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(

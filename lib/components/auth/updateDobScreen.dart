@@ -100,10 +100,11 @@ class UpdateDobScreen extends StatelessWidget {
               height: 35,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const EnableLocationWarningScreen()));
+                          builder: (context) =>
+                              const EnableLocationWarningScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

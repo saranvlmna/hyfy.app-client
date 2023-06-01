@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
         child: Center(
           child: ElevatedButton(
             onPressed: () {
-              Navigator.pushReplacement(context,
+              Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const AuthScreen()));
             },
             style: ElevatedButton.styleFrom(
