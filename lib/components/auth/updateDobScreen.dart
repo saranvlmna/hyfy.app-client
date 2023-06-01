@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:hyfy/components/auth/authScreen.dart';
+
+import 'enableLocationWarningScreen.dart';
 
 class UpdateDobScreen extends StatelessWidget {
   const UpdateDobScreen({super.key});
@@ -36,7 +37,7 @@ class UpdateDobScreen extends StatelessWidget {
 
                   Container(
                     alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(left: 30, top: 30),
+                    padding: const EdgeInsets.only(left: 30, top: 30),
                     child: IconButton(
                       color: const Color(0xffD2576D),
                       hoverColor: const Color(0xffD2576D),
@@ -52,11 +53,6 @@ class UpdateDobScreen extends StatelessWidget {
                       ),
                       iconSize: 100,
                       onPressed: () async {
-                        // Navigator.pushReplacement(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => const OtpVerifyScreen())
-                        // );
                         DateTime? pickedDate = await showDatePicker(
                           context: context,
                           initialDate: DateTime.now(),
@@ -107,7 +103,7 @@ class UpdateDobScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const AuthScreen()));
+                          builder: (context) => const EnableLocationWarningScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
