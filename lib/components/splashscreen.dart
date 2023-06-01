@@ -11,7 +11,7 @@ class SplashScreen extends State<hyfyApp> {
     super.initState();
     Timer(
         const Duration(seconds: 2),
-        () => Navigator.push(context,
+        () => Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const AuthScreen())));
   }
 
