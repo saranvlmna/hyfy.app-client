@@ -6,8 +6,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
-import 'package:hyfy/components/auth/googleAuthScreen.dart';
-import 'package:hyfy/components/auth/otpVerify.dart';
+import 'package:hyfy/components/auth/mobileAuthScreen.dart';
+import 'package:hyfy/components/auth/providers/googleAuthProvider.dart';
 import 'package:hyfy/components/auth/updateMobile.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -115,7 +115,7 @@ class AuthScreen extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const OtpVerifyScreen()));
+                          builder: (context) => const MobileAuthScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

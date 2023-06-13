@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hyfy/components/home/homeScreen.dart';
 
 import '../main.dart';
 import 'auth/authScreen.dart';
@@ -11,8 +13,22 @@ class SplashScreen extends State<hyfyApp> {
     super.initState();
     Timer(
         const Duration(seconds: 2),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const AuthScreen())));
+        () => {
+              if (FirebaseAuth.instance.currentUser == null)
+                {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AuthScreen()))
+                }
+              else
+                {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()))
+                }
+            });
   }
 
   @override

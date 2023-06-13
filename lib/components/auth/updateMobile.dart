@@ -40,7 +40,7 @@ class UpdateMobileScreen extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const OtpVerifyScreen()));
+                          builder: (context) => const OtpVerifyScreen(token: '',)));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
