@@ -1,8 +1,12 @@
 // ignore_for_file: file_names
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hyfy/components/auth/googleAuthScreen.dart';
 import 'package:hyfy/components/auth/otpVerify.dart';
 import 'package:hyfy/components/auth/updateMobile.dart';
+
+import '../home/homeScreen.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -38,11 +42,26 @@ class AuthScreen extends StatelessWidget {
               width: 260,
               height: 35,
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
+                // onPressed: () {
+                //   Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //           builder: (context) => const UpdateMobileScreen()));
+                // },
+
+                onPressed: () async {
+                  User? user =
+                      await Authentication.signInWithGoogle(context: context);
+                  print(user);
+                  if (user != null) {
+                    Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                          builder: (context) => const UpdateMobileScreen()));
+                        builder: (context) => UpdateMobileScreen(
+                          user: user,
+                        ),
+                      ),
+                    );
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -86,3 +105,4 @@ class AuthScreen extends StatelessWidget {
     );
   }
 }
+
