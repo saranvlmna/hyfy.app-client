@@ -1,7 +1,10 @@
 // ignore_for_file: file_names
 
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:hyfy/components/auth/googleAuthScreen.dart';
 import 'package:hyfy/components/auth/otpVerify.dart';
 import 'package:hyfy/components/auth/updateMobile.dart';
@@ -40,25 +43,41 @@ class AuthScreen extends StatelessWidget {
               width: 260,
               height: 35,
               child: ElevatedButton(
-                // onPressed: () {
-                //   Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //           builder: (context) => const UpdateMobileScreen()));
-                // },
-
                 onPressed: () async {
                   User? user =
                       await Authentication.signInWithGoogle(context: context);
-                  print(user);
                   if (user != null) {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => UpdateMobileScreen(
-                          user: user,
+                    var userData = jsonEncode({
+                      "name": user.providerData[0].displayName,
+                      "email": user.providerData[0].email,
+                      "mobile": user.providerData[0].phoneNumber,
+                      "photo": user.providerData[0].photoURL,
+                      "providerId": user.providerData[0].providerId,
+                      "uid": user.providerData[0].uid,
+                      "refreshToken": user.refreshToken,
+                      "tenantId": user.tenantId,
+                      // ignore: equal_keys_in_map
+                      "uid": user.uid,
+                      "signUpMethod": "google"
+                    });
+                    final response = await http.post(
+                        Uri.parse(
+                            'https://359b-2402-3a80-1cb1-b9f-f903-d2a2-95b3-f0ad.ngrok-free.app/auth/signin'),
+                        headers: <String, String>{
+                          "Content-Type": "application/json"
+                        },
+                        body: userData);
+                    print(response);
+                    if (response.statusCode == 200) {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => UpdateMobileScreen(
+                            user: user,
+                          ),
                         ),
-                      ),
-                    );
+                      );
+                    }
+                    throw Exception('Failed to user creation');
                   }
                 },
                 style: ElevatedButton.styleFrom(
