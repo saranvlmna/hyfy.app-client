@@ -73,7 +73,7 @@ class AuthScreen extends StatelessWidget {
                     });
                     final response = await http.post(
                         Uri.parse(
-                            'https://359b-2402-3a80-1cb1-b9f-f903-d2a2-95b3-f0ad.ngrok-free.app/auth/signin'),
+                            'https://hyfyserver.vercel.app/auth/signin'),
                         headers: <String, String>{
                           "Content-Type": "application/json"
                         },
