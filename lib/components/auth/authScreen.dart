@@ -72,23 +72,23 @@ class AuthScreen extends StatelessWidget {
                       "signUpMethod": "google"
                     });
                     final response = await http.post(
-                        Uri.parse(
-                            'https://hyfyserver.vercel.app/auth/signin'),
+                        Uri.parse('https://hyfyserver.vercel.app/auth/signin'),
                         headers: <String, String>{
                           "Content-Type": "application/json"
                         },
                         body: userData);
                     if (response.statusCode == 200) {
                       EasyLoading.dismiss();
-                      Navigator.push(context,
+                      Navigator.push(
+                        context,
                         MaterialPageRoute(
                           builder: (context) => UpdateMobileScreen(
-                            user: userData,
+                            user: User,
                           ),
                         ),
                       );
                     } else {
-                      // EasyLoading.showError();
+                      EasyLoading.showError(response.body);
                       EasyLoading.dismiss();
                       throw Exception('signin failed');
                     }

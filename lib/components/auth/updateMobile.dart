@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hyfy/components/auth/otpVerify.dart';
 
 class UpdateMobileScreen extends StatelessWidget {
-  const UpdateMobileScreen({super.key, required Object user});
+  const UpdateMobileScreen({super.key, required Type user,});
 
   @override
   Widget build(BuildContext context) {
