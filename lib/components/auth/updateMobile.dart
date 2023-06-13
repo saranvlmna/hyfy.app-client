@@ -1,11 +1,9 @@
 // ignore_for_file: file_names
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hyfy/components/auth/otpVerify.dart';
 
 class UpdateMobileScreen extends StatelessWidget {
-  const UpdateMobileScreen({super.key, required User user});
+  const UpdateMobileScreen({super.key, required Object user});
 
   @override
   Widget build(BuildContext context) {

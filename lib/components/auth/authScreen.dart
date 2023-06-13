@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 import 'package:hyfy/components/auth/googleAuthScreen.dart';
 import 'package:hyfy/components/auth/otpVerify.dart';
@@ -44,6 +45,16 @@ class AuthScreen extends StatelessWidget {
               height: 35,
               child: ElevatedButton(
                 onPressed: () async {
+                  EasyLoading.instance
+                    ..displayDuration = const Duration(milliseconds: 2000)
+                    ..indicatorType = EasyLoadingIndicatorType.chasingDots
+                    ..loadingStyle = EasyLoadingStyle.light
+                    ..indicatorSize = 40
+                    ..radius = 20
+                    ..userInteractions = false
+                    ..dismissOnTap = false
+                    ..maskType = EasyLoadingMaskType.black;
+                  EasyLoading.show();
                   User? user =
                       await Authentication.signInWithGoogle(context: context);
                   if (user != null) {
@@ -67,17 +78,20 @@ class AuthScreen extends StatelessWidget {
                           "Content-Type": "application/json"
                         },
                         body: userData);
-                    print(response);
                     if (response.statusCode == 200) {
-                      Navigator.of(context).pushReplacement(
+                      EasyLoading.dismiss();
+                      Navigator.push(context,
                         MaterialPageRoute(
                           builder: (context) => UpdateMobileScreen(
-                            user: user,
+                            user: userData,
                           ),
                         ),
                       );
+                    } else {
+                      // EasyLoading.showError();
+                      EasyLoading.dismiss();
+                      throw Exception('signin failed');
                     }
-                    throw Exception('Failed to user creation');
                   }
                 },
                 style: ElevatedButton.styleFrom(

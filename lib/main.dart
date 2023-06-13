@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:hyfy/components/splashscreen.dart';
 
 void main() async {
@@ -24,6 +25,7 @@ class hyfy extends StatelessWidget {
       theme: ThemeData(),
       home: const hyfyApp(),
       debugShowCheckedModeBanner: false,
+      builder: EasyLoading.init(),
     );
   }
 }
