@@ -6,8 +6,6 @@ import 'package:hyfy/components/auth/googleAuthScreen.dart';
 import 'package:hyfy/components/auth/otpVerify.dart';
 import 'package:hyfy/components/auth/updateMobile.dart';
 
-import '../home/homeScreen.dart';
-
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
 
@@ -105,4 +103,3 @@ class AuthScreen extends StatelessWidget {
     );
   }
 }
-
