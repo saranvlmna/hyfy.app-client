@@ -1,9 +1,12 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:hyfy/components/auth/otpVerify.dart';
+import 'package:hyfy/components/auth/mobileAuthScreen.dart';
 
 class UpdateMobileScreen extends StatelessWidget {
-  const UpdateMobileScreen({super.key, required Type user,});
+  const UpdateMobileScreen({
+    super.key,
+    required Type user,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +43,7 @@ class UpdateMobileScreen extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const OtpVerifyScreen(token: '',)));
+                          builder: (context) => const MobileAuthScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
