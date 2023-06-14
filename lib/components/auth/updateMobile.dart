@@ -57,6 +57,11 @@ class _MyCustomFormState extends State<MyCustomForm> {
                     textAlign: TextAlign.start,
                   ),
                   Container(height: 50.0),
+                                    Image.asset(
+                    'assets/images/updatemobile.png',
+                    height: 100,
+                    width: 300,
+                  ),
                   Container(
                     padding: EdgeInsets.all(60),
                     child: TextFormField(
@@ -72,7 +77,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
                       keyboardType: TextInputType.number,
                       cursorColor: Colors.black,
                       decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.all(30),
+                        contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(60)),
                           gapPadding: 10,

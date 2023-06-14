@@ -7,6 +7,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 
 import '../utilitys/constants.dart';
+import '../utilitys/localStorage.dart';
 import 'otpVerify.dart';
 
 class MobileAuthScreen extends StatelessWidget {
@@ -56,10 +57,15 @@ class _MyCustomFormState extends State<MyCustomForm> {
                     textAlign: TextAlign.start,
                   ),
                   Container(height: 50.0),
+                  Image.asset(
+                    'assets/images/updatemobile.png',
+                    height: 100,
+                    width: 300,
+                  ),
                   Container(
                     padding: EdgeInsets.all(60),
                     child: TextFormField(
-                        maxLength: 10,
+                      maxLength: 10,
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -67,7 +73,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
                       keyboardType: TextInputType.number,
                       cursorColor: Colors.black,
                       decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.all(30),
+                        contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(60)),
                           gapPadding: 10,
@@ -113,6 +119,8 @@ class _MyCustomFormState extends State<MyCustomForm> {
                           body: data);
                       if (response.statusCode == 200) {
                         EasyLoading.dismiss();
+                        await setValue('token',
+                            jsonDecode(response.body)['data']['accessToken']);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -120,7 +128,8 @@ class _MyCustomFormState extends State<MyCustomForm> {
                           ),
                         );
                       } else {
-                        EasyLoading.showError(jsonDecode(response.body)['message']);
+                        EasyLoading.showError(
+                            jsonDecode(response.body)['message']);
                         EasyLoading.dismiss();
                         throw Exception('signin failed');
                       }

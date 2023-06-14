@@ -82,6 +82,7 @@ class AuthScreen extends StatelessWidget {
                       },
                       body: userData);
                   if (response.statusCode == 200) {
+                      EasyLoading.dismiss();
                     await setValue('token',
                         jsonDecode(response.body)['data']['accessToken']);
                     await setValue(
@@ -90,7 +91,6 @@ class AuthScreen extends StatelessWidget {
                             jsonDecode(response.body)['data']['user']));
                     if (jsonDecode(response.body)['data']['user']
                         ['mobileVerified']) {
-                      EasyLoading.dismiss();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
