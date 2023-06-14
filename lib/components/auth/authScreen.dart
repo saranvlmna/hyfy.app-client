@@ -85,10 +85,6 @@ class AuthScreen extends StatelessWidget {
                       EasyLoading.dismiss();
                     await setValue('token',
                         jsonDecode(response.body)['data']['accessToken']);
-                    await setValue(
-                        'user',
-                        jsonEncode(
-                            jsonDecode(response.body)['data']['user']));
                     if (jsonDecode(response.body)['data']['user']
                         ['mobileVerified']) {
                       Navigator.push(

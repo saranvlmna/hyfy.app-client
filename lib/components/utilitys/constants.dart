@@ -4,4 +4,5 @@ class ApiConstants {
   static String updateMobileEndpoint = '/auth/mobile/update';
   static String otpVerifyEndpoint = '/auth/otp/verify';
   static String updateUserEndpoint = '/user/update/';
+  static String getUserEndpoint = '/user/profile/';
 }

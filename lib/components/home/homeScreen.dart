@@ -1,37 +1,60 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
-import 'package:hyfy/components/auth/authScreen.dart';
+import 'package:http/http.dart' as http;
+import 'package:hyfy/components/utilitys/localStorage.dart';
+import 'dart:convert';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+import '../utilitys/constants.dart';
 
-  get dateController => null;
+class HomeScreen extends StatefulWidget {
+  @override
+  _MyPageState createState() => _MyPageState();
+}
+
+class _MyPageState extends State<HomeScreen> {
+  List<dynamic> user = [];
+  String name = 'hyfy';
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    final response = await http.get(
+        Uri.parse(ApiConstants.baseUrl + ApiConstants.getUserEndpoint),
+        headers: <String, String>{
+          "Content-Type": "application/json",
+          "token": await getValue("token")
+        });
+    if (response.statusCode == 200) {
+      setState(() {
+        user = jsonDecode(response.body)['data'];
+        name = jsonDecode(response.body)['data'][0]['name'];
+        print(jsonDecode(response.body)['data'][0]['name']);
+      });
+    } else {
+      print('Failed to fetch data');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const AuthScreen()));
-            },
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0)),
-              backgroundColor: const Color.fromARGB(255, 246, 246, 246),
-              elevation: 20.0,
-            ),
-            child: const Text(
-              'HyFy Home Screen',
-              style: TextStyle(color: Color(0xffCB3333)),
-            ),
-          ),
+          child: Center(
+        child: Text(
+          'hey  ' + name,
+          style: TextStyle(
+              fontSize: 30, fontWeight: FontWeight.w200, fontFamily: 'Ysabeau'),
+          textAlign: TextAlign.start,
         ),
-      ),
+      )),
     );
   }
 }
 
-void setState(Null Function() param0) {}
+void main() {
+  runApp(MaterialApp(
+    home: HomeScreen(),
+  ));
+}

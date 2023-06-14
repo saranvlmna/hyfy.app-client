@@ -27,7 +27,7 @@ class SplashScreen extends State<hyfyApp> {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const HomeScreen()))
+                          builder: (context) => HomeScreen()))
                 }
             });
   }
