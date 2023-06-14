@@ -140,7 +140,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
                   elevation: 20.0,
                 ),
                 child: const Text(
-                  'Name',
+                  'Next',
                   style: TextStyle(color: Color(0xffCB3333)),
                 ),
               ),
