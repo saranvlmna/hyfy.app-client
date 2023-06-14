@@ -9,6 +9,10 @@ import 'package:http/http.dart' as http;
 import 'package:hyfy/components/auth/mobileAuthScreen.dart';
 import 'package:hyfy/components/auth/providers/googleAuthProvider.dart';
 import 'package:hyfy/components/auth/updateMobile.dart';
+import 'package:hyfy/components/home/homeScreen.dart';
+import 'package:hyfy/components/utilitys/localStorage.dart';
+
+import '../utilitys/constants.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -57,41 +61,53 @@ class AuthScreen extends StatelessWidget {
                   EasyLoading.show();
                   User? user =
                       await Authentication.signInWithGoogle(context: context);
-                  if (user != null) {
-                    var userData = jsonEncode({
-                      "name": user.providerData[0].displayName,
-                      "email": user.providerData[0].email,
-                      "mobile": user.providerData[0].phoneNumber,
-                      "photo": user.providerData[0].photoURL,
-                      "providerId": user.providerData[0].providerId,
-                      "uid": user.providerData[0].uid,
-                      "refreshToken": user.refreshToken,
-                      "tenantId": user.tenantId,
-                      // ignore: equal_keys_in_map
-                      "uid": user.uid,
-                      "signUpMethod": "google"
-                    });
-                    final response = await http.post(
-                        Uri.parse('https://hyfyserver.vercel.app/auth/signin'),
-                        headers: <String, String>{
-                          "Content-Type": "application/json"
-                        },
-                        body: userData);
-                    if (response.statusCode == 200) {
-                      EasyLoading.dismiss();
+                  var userData = jsonEncode({
+                    "name": user?.providerData[0].displayName,
+                    "email": user?.providerData[0].email,
+                    "mobile": user?.providerData[0].phoneNumber,
+                    "photo": user?.providerData[0].photoURL,
+                    "providerId": user?.providerData[0].providerId,
+                    "uid": user?.providerData[0].uid,
+                    "refreshToken": user?.refreshToken,
+                    "tenantId": user?.tenantId,
+                    // ignore: equal_keys_in_map
+                    "uid": user?.uid,
+                    "signUpMethod": "google"
+                  });
+                  final response = await http.post(
+                      Uri.parse(
+                          ApiConstants.baseUrl + ApiConstants.singninEndpoint),
+                      headers: <String, String>{
+                        "Content-Type": "application/json"
+                      },
+                      body: userData);
+                  if (response.statusCode == 200) {
+                    await setValue('token',
+                        jsonDecode(response.body)['data']['accessToken']);
+                    await setValue(
+                        'user', jsonDecode(response.body)['data']['user']);
+                    EasyLoading.dismiss();
+                    if (jsonDecode(response.body)['data']['user']
+                            ['mobileVerified'] ==
+                        false) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => UpdateMobileScreen(
-                            user: User,
-                          ),
+                          builder: (context) => UpdateMobileScreen(),
                         ),
                       );
-                    } else {
-                      EasyLoading.showError(response.body);
-                      EasyLoading.dismiss();
-                      throw Exception('signin failed');
+                    }else{
+                       Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ),
+                      );
                     }
+                  } else {
+                    EasyLoading.showError(jsonDecode(response.body)['message']);
+                    EasyLoading.dismiss();
+                    throw Exception('signin failed');
                   }
                 },
                 style: ElevatedButton.styleFrom(

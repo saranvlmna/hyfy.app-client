@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'updateNameScreen.dart';
 
 class OtpVerifyScreen extends StatelessWidget {
-  const OtpVerifyScreen({super.key,required String token});
+  const OtpVerifyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

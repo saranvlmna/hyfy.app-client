@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hyfy/components/home/homeScreen.dart';
+import 'package:hyfy/components/utilitys/localStorage.dart';
 
 import '../main.dart';
 import 'auth/authScreen.dart';
@@ -13,8 +13,9 @@ class SplashScreen extends State<hyfyApp> {
     super.initState();
     Timer(
         const Duration(seconds: 2),
-        () => {
-              if (FirebaseAuth.instance.currentUser == null)
+        // ignore: unnecessary_set_literal
+        () async => {
+              if (await getValue('token') == 'null')
                 {
                   Navigator.pushReplacement(
                       context,

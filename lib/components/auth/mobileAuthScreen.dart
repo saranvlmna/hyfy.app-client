@@ -1,9 +1,12 @@
 // ignore_for_file: file_names
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 
+import '../utilitys/constants.dart';
 import 'otpVerify.dart';
 
 class MobileAuthScreen extends StatelessWidget {
@@ -98,33 +101,36 @@ class _MyCustomFormState extends State<MyCustomForm> {
                     ..maskType = EasyLoadingMaskType.black;
                   if (myController.text.isEmpty) {
                     EasyLoading.showError('Please enter a valid phone number');
-                  }else{
-                  EasyLoading.show();
-                  final response = await http.post(
-                      Uri.parse('https://hyfyserver.vercel.app/auth/signin'),
-                      headers: <String, String>{
-                        "Content-Type": "application/json"
-                      },
-                      body: {
+                  } else {
+                    EasyLoading.show();
+                    try {
+                      var data = jsonEncode({
                         "mobile": myController.text,
                         "signUpMethod": "mobile"
                       });
-                  if (response.statusCode == 200) {
-                    EasyLoading.dismiss();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => OtpVerifyScreen(
-                          token: myController.text,
-                        ),
-                      ),
-                    );
-                  } else {
-                    EasyLoading.showError(response.body);
-                    EasyLoading.dismiss();
-                    throw Exception('mobile updation failed');
-                  }
-
+                      final response = await http.post(
+                          Uri.parse(ApiConstants.baseUrl +
+                              ApiConstants.singninEndpoint),
+                          headers: <String, String>{
+                            "Content-Type": "application/json"
+                          },
+                          body: data);
+                      if (response.statusCode == 200) {
+                        EasyLoading.dismiss();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OtpVerifyScreen(),
+                          ),
+                        );
+                      } else {
+                        EasyLoading.showError(jsonDecode(response.body)['message']);
+                        EasyLoading.dismiss();
+                        throw Exception('signin failed');
+                      }
+                    } catch (e) {
+                      print(e);
+                    }
                   }
                 },
                 style: ElevatedButton.styleFrom(
