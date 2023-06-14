@@ -85,22 +85,24 @@ class AuthScreen extends StatelessWidget {
                     await setValue('token',
                         jsonDecode(response.body)['data']['accessToken']);
                     await setValue(
-                        'user', jsonDecode(response.body)['data']['user']);
-                    EasyLoading.dismiss();
+                        'user',
+                        jsonEncode(
+                            jsonDecode(response.body)['data']['user']));
                     if (jsonDecode(response.body)['data']['user']
-                            ['mobileVerified'] ==
-                        false) {
+                        ['mobileVerified']) {
+                      EasyLoading.dismiss();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ),
+                      );
+                    } else {
+                      EasyLoading.dismiss();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => UpdateMobileScreen(),
-                        ),
-                      );
-                    }else{
-                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
                         ),
                       );
                     }

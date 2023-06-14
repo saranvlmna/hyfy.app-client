@@ -59,11 +59,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
                   Container(
                     padding: EdgeInsets.all(60),
                     child: TextFormField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty)
-                          return 'Field is required.';
-                        return null;
-                      },
+                        maxLength: 10,
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
