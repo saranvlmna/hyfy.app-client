@@ -1,8 +1,14 @@
 // ignore_for_file: file_names
 
-import 'package:flutter/material.dart';
-import 'package:hyfy/components/auth/updateDobScreen.dart';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:hyfy/components/auth/updateDobScreen.dart';
+import 'package:http/http.dart' as http;
+
+import '../utilitys/constants.dart';
+import '../utilitys/localStorage.dart';
 class DisplayedGenderScreen extends StatelessWidget {
   const DisplayedGenderScreen({super.key});
 
@@ -48,7 +54,44 @@ class DisplayedGenderScreen extends StatelessWidget {
                                 fontWeight: FontWeight.w200,
                                 fontFamily: 'Ysabeau')),
                         iconSize: 100,
-                        onPressed: () {},
+                        onPressed: () async {
+                          EasyLoading.instance
+                            ..displayDuration =
+                                const Duration(milliseconds: 2000)
+                            ..indicatorType =
+                                EasyLoadingIndicatorType.chasingDots
+                            ..loadingStyle = EasyLoadingStyle.light
+                            ..indicatorSize = 40
+                            ..radius = 20
+                            ..userInteractions = false
+                            ..dismissOnTap = false
+                            ..maskType = EasyLoadingMaskType.black;
+                          EasyLoading.show();
+                          final response = await http.put(
+                              Uri.parse(ApiConstants.baseUrl +
+                                  ApiConstants.updateUserEndpoint),
+                              headers: <String, String>{
+                                "Content-Type": "application/json",
+                                "token": await getValue('token')
+                              },
+                                body: jsonEncode({
+                                "opponentGender": "male"
+                              }));
+                          if (response.statusCode == 200) {
+                            EasyLoading.dismiss();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => UpdateDobScreen(),
+                              ),
+                            );
+                          } else {
+                            EasyLoading.showError(
+                                jsonDecode(response.body)['message']);
+                            EasyLoading.dismiss();
+                            throw Exception('action failed');
+                          }
+                        },
                         padding: const EdgeInsets.only(left: 40),
                       ),
                       const Padding(padding: EdgeInsets.only(left: 50)),
@@ -59,37 +102,50 @@ class DisplayedGenderScreen extends StatelessWidget {
                                 fontWeight: FontWeight.w200,
                                 fontFamily: 'Ysabeau')),
                         iconSize: 100,
-                        onPressed: () {},
+                        onPressed: () async {
+                          EasyLoading.instance
+                            ..displayDuration =
+                                const Duration(milliseconds: 2000)
+                            ..indicatorType =
+                                EasyLoadingIndicatorType.chasingDots
+                            ..loadingStyle = EasyLoadingStyle.light
+                            ..indicatorSize = 40
+                            ..radius = 20
+                            ..userInteractions = false
+                            ..dismissOnTap = false
+                            ..maskType = EasyLoadingMaskType.black;
+                          EasyLoading.show();
+                          final response = await http.put(
+                              Uri.parse(ApiConstants.baseUrl +
+                                  ApiConstants.updateUserEndpoint),
+                              headers: <String, String>{
+                                "Content-Type": "application/json",
+                                "token": await getValue('token')
+                              },
+                                body: jsonEncode({
+                                "opponentGender": "female"
+                              }));
+                          if (response.statusCode == 200) {
+                            EasyLoading.dismiss();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => UpdateDobScreen(),
+                              ),
+                            );
+                          } else {
+                            EasyLoading.showError(
+                                jsonDecode(response.body)['message']);
+                            EasyLoading.dismiss();
+                            throw Exception('action failed');
+                          }
+                        },
                       )
                     ],
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              width: 260,
-              height: 35,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const UpdateDobScreen()));
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  backgroundColor: const Color.fromARGB(255, 246, 246, 246),
-                  elevation: 20.0,
-                ),
-                child: const Text(
-                  'Next',
-                  style: TextStyle(color: Color(0xffCB3333)),
-                ),
-              ),
-            ),
-            Container(height: 20.0),
-            Container(height: 50.0),
           ],
         ),
       ),
