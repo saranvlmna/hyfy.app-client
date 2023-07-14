@@ -27,71 +27,69 @@ class UpdateDobScreen extends StatelessWidget {
                         fontFamily: 'Ysabeau'),
                     textAlign: TextAlign.start,
                   ),
-                  Container(height: 80.0),
-
-//  Container(
-//               color: Colors.green,
-//               child: new IconButton(
-//                   icon: new Icon(Icons.search,color: Colors.white,),onPressed: null),
-//             ),
-
                   Container(
                     alignment: Alignment.topLeft,
-                    padding: const EdgeInsets.only(left: 30, top: 30),
-                    child: IconButton(
-                      color: const Color(0xffD2576D),
-                      hoverColor: const Color(0xffD2576D),
-                      highlightColor: const Color.fromARGB(255, 165, 121, 121),
-                      splashColor: const Color.fromARGB(255, 221, 186, 193),
-                      disabledColor: const Color.fromARGB(255, 176, 164, 164),
-                      icon: const Text(
-                        'Select date',
-                        style: TextStyle(
+                    padding: EdgeInsets.only(top: 90, left: 40),
+                    child: CircleAvatar(
+                      radius: 90,
+                      backgroundColor: const Color(0xffD2576D),
+                      child: IconButton(
+                        icon: const Text(
+                          'Select date',
+                          style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w900,
-                            fontFamily: 'BrunoAceSC'),
-                      ),
-                      iconSize: 100,
-                      onPressed: () async {
-                        DateTime? pickedDate = await showDatePicker(
-                          context: context,
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime.now(),
-                          lastDate: DateTime(2101),
-                          helpText: 'My birthday',
-                          builder: (context, child) {
-                            return Theme(
-                              data: Theme.of(context).copyWith(
-                                colorScheme: const ColorScheme.light(
-                                  primary: Colors.white,
-                                  onPrimary: Color(0xffD2576D),
-                                  onSurface: Colors.black,
-                                ),
-                                textButtonTheme: TextButtonThemeData(
-                                  style: TextButton.styleFrom(
-                                    foregroundColor: const Color(0xffD2576D),
+                            fontFamily: 'BrunoAceSC',
+                          ),
+                        ),
+                        iconSize: 100,
+                        onPressed: () async {
+                          DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(1890),
+                            lastDate: DateTime.now(),
+                            helpText: 'My birthday',
+                            builder: (context, child) {
+                              return Theme(
+                                data: Theme.of(context).copyWith(
+                                  colorScheme: const ColorScheme.light(
+                                    primary: Colors.white,
+                                    onPrimary: Color(0xffD2576D),
+                                    onSurface: Colors.black,
+                                  ),
+                                  textButtonTheme: TextButtonThemeData(
+                                    style: TextButton.styleFrom(
+                                      foregroundColor: const Color(0xffD2576D),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              child: child!,
-                            );
-                          },
-                        );
-                        if (pickedDate != null) {
-                          print(pickedDate);
-                          String formattedDate =
-                              DateFormat('yyyy-MM-dd').format(pickedDate);
-                          print(formattedDate);
-                          setState(() {
-                            dateController.text = formattedDate;
-                          });
-                        } else {
-                          print("Date is not selected");
-                        }
-                      },
+                                child: child!,
+                              );
+                            },
+                          );
+                          if (pickedDate != null) {
+                            String formattedDate =
+                                DateFormat('dd-MM-yyyy').format(pickedDate);
+                            print(formattedDate);
+                          } else {
+                            print("Date is not selected");
+                          }
+                        },
+                      ),
                     ),
-                    // ),
-                  )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 80),
+                    child: Text(
+                      '20/05/2002',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
+                        fontFamily: 'BrunoAceSC',
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -125,5 +123,3 @@ class UpdateDobScreen extends StatelessWidget {
     );
   }
 }
-
-void setState(Null Function() param0) {}
