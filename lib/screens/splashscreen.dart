@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:hyfy/components/home/homeScreen.dart';
-import 'package:hyfy/components/utilitys/localStorage.dart';
+import 'package:hyfy/utilitys/localStorage.dart';
 
 import '../main.dart';
-import 'auth/authScreen.dart';
+import 'homeScreen.dart';
+import 'authScreen.dart';
 
 class SplashScreen extends State<hyfyApp> {
   @override

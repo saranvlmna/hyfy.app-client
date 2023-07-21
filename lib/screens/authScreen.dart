@@ -6,13 +6,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
-import 'package:hyfy/components/auth/mobileAuthScreen.dart';
-import 'package:hyfy/components/auth/providers/googleAuthProvider.dart';
-import 'package:hyfy/components/auth/updateMobile.dart';
-import 'package:hyfy/components/home/homeScreen.dart';
-import 'package:hyfy/components/utilitys/localStorage.dart';
+import 'package:hyfy/providers/googleAuthProvider.dart';
+import 'package:hyfy/screens/updateMobileScreen.dart';
+import 'package:hyfy/utilitys/localStorage.dart';
 
+import 'homeScreen.dart';
 import '../utilitys/constants.dart';
+import 'mobileAuthScreen.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});

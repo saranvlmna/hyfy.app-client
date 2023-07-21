@@ -1,7 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import '../home/homeScreen.dart';
+
+import '../../screens/homeScreen.dart';
 
 class EnableNotificationWarningScreen extends StatelessWidget {
   const EnableNotificationWarningScreen({super.key});

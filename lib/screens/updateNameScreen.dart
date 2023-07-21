@@ -4,9 +4,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:hyfy/components/auth/udateGender.dart';
 import 'package:http/http.dart' as http;
-import 'package:hyfy/components/utilitys/localStorage.dart';
+import 'package:hyfy/screens/udateGenderScreen.dart';
+import 'package:hyfy/utilitys/localStorage.dart';
 
 import '../utilitys/constants.dart';
 

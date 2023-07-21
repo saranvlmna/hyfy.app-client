@@ -4,13 +4,14 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:hyfy/components/auth/updateDobScreen.dart';
 import 'package:http/http.dart' as http;
 
 import '../utilitys/constants.dart';
 import '../utilitys/localStorage.dart';
-class DisplayedGenderScreen extends StatelessWidget {
-  const DisplayedGenderScreen({super.key});
+import 'displayedGenderScreen.dart';
+
+class UpdateGenderScreen extends StatelessWidget {
+  const UpdateGenderScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,41 +19,29 @@ class DisplayedGenderScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Container(height: 40.0),
+            Container(height: 60.0),
+            const Text(
+              "What is your gender",
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w200,
+                  fontFamily: 'Ysabeau'),
+              textAlign: TextAlign.start,
+            ),
             Expanded(
               child: Column(
                 children: [
-                  const Text(
-                    "Who would you",
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w200,
-                        fontFamily: 'Ysabeau'),
-                    textAlign: TextAlign.start,
-                  ),
-                  const Text(
-                    "like date",
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w200,
-                        fontFamily: 'Ysabeau'),
-                    textAlign: TextAlign.start,
-                  ),
+                  Container(height: 60.0),
                   Image.asset(
-                    'assets/images/girllove.png',
+                    'assets/images/updategender.png',
                     height: 250,
                     width: 300,
                     alignment: Alignment.topRight,
                   ),
-                  Container(height: 80.0),
                   Row(
                     children: [
                       IconButton(
-                        icon: const Text('male',
-                            style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w200,
-                                fontFamily: 'Ysabeau')),
+                        icon: Image.asset('assets/images/gendermale.png'),
                         iconSize: 100,
                         onPressed: () async {
                           EasyLoading.instance
@@ -75,14 +64,14 @@ class DisplayedGenderScreen extends StatelessWidget {
                                 "token": await getValue('token')
                               },
                                 body: jsonEncode({
-                                "opponentGender": "male"
+                                "gender": "male"
                               }));
                           if (response.statusCode == 200) {
                             EasyLoading.dismiss();
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => UpdateDobScreen(),
+                                builder: (context) => DisplayedGenderScreen(),
                               ),
                             );
                           } else {
@@ -96,11 +85,7 @@ class DisplayedGenderScreen extends StatelessWidget {
                       ),
                       const Padding(padding: EdgeInsets.only(left: 50)),
                       IconButton(
-                        icon: const Text('female',
-                            style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w200,
-                                fontFamily: 'Ysabeau')),
+                        icon: Image.asset('assets/images/genderfemale.png'),
                         iconSize: 100,
                         onPressed: () async {
                           EasyLoading.instance
@@ -122,15 +107,15 @@ class DisplayedGenderScreen extends StatelessWidget {
                                 "Content-Type": "application/json",
                                 "token": await getValue('token')
                               },
-                                body: jsonEncode({
-                                "opponentGender": "female"
+                              body: jsonEncode({
+                                "gender": "female"
                               }));
                           if (response.statusCode == 200) {
                             EasyLoading.dismiss();
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => UpdateDobScreen(),
+                                builder: (context) => DisplayedGenderScreen(),
                               ),
                             );
                           } else {
@@ -142,7 +127,7 @@ class DisplayedGenderScreen extends StatelessWidget {
                         },
                       )
                     ],
-                  ),
+                  )
                 ],
               ),
             ),

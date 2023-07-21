@@ -5,13 +5,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
+import 'package:hyfy/utilitys/localStorage.dart';
 
 import '../utilitys/constants.dart';
-import '../utilitys/localStorage.dart';
-import 'otpVerify.dart';
+import 'otpVerifyScreen.dart';
 
-class MobileAuthScreen extends StatelessWidget {
-  const MobileAuthScreen({super.key});
+class UpdateMobileScreen extends StatelessWidget {
+  const UpdateMobileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
                     textAlign: TextAlign.start,
                   ),
                   Container(height: 50.0),
-                  Image.asset(
+                                    Image.asset(
                     'assets/images/updatemobile.png',
                     height: 100,
                     width: 300,
@@ -65,7 +65,11 @@ class _MyCustomFormState extends State<MyCustomForm> {
                   Container(
                     padding: EdgeInsets.all(60),
                     child: TextFormField(
-                      maxLength: 10,
+                      validator: (value) {
+                        if (value == null || value.isEmpty)
+                          return 'Field is required.';
+                        return null;
+                      },
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -108,19 +112,17 @@ class _MyCustomFormState extends State<MyCustomForm> {
                     try {
                       var data = jsonEncode({
                         "mobile": myController.text,
-                        "signUpMethod": "mobile"
                       });
-                      final response = await http.post(
+                      final response = await http.put(
                           Uri.parse(ApiConstants.baseUrl +
-                              ApiConstants.singninEndpoint),
+                              ApiConstants.updateMobileEndpoint),
                           headers: <String, String>{
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            "token":await getValue('token')
                           },
                           body: data);
                       if (response.statusCode == 200) {
                         EasyLoading.dismiss();
-                        await setValue('token',
-                            jsonDecode(response.body)['data']['accessToken']);
                         Navigator.push(
                           context,
                           MaterialPageRoute(

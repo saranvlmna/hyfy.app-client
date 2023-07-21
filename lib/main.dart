@@ -1,10 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:hyfy/components/splashscreen.dart';
+import 'package:hyfy/screens/splashscreen.dart';
+import 'package:hyfy/utilitys/theme.dart';
 
 void main() async {
-  runApp(const hyfy());
+  runApp( hyfy(
+     appTheme: AppTheme(),
+  ));
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: FirebaseOptions(
@@ -17,12 +20,17 @@ void main() async {
 }
 
 class hyfy extends StatelessWidget {
-  const hyfy({super.key});
+  const hyfy({super.key,
+  required this.appTheme,});
+
+    final AppTheme appTheme;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(),
+       theme: appTheme.light,
+        darkTheme: appTheme.dark,
+         themeMode: ThemeMode.light,
       home: const hyfyApp(),
       debugShowCheckedModeBanner: false,
       builder: EasyLoading.init(),
