@@ -13,10 +13,12 @@ class EnableNotificationWarningScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Container(height: 40.0),
             Expanded(
               child: Column(
                 children: [
+                  SizedBox(
+                    height: 100,
+                  ),
                   const Text(
                     "Enable notification",
                     style: TextStyle(
@@ -25,7 +27,6 @@ class EnableNotificationWarningScreen extends StatelessWidget {
                         fontFamily: 'Ysabeau'),
                     textAlign: TextAlign.start,
                   ),
-                  Container(height: 40.0),
                   Image.asset(
                     'assets/images/notification.png',
                     alignment: Alignment.topRight,
@@ -41,7 +42,6 @@ class EnableNotificationWarningScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  Container(height: 80.0),
                 ],
               ),
             ),
@@ -53,10 +53,8 @@ class EnableNotificationWarningScreen extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => HomeScreen()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
@@ -69,8 +67,6 @@ class EnableNotificationWarningScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // Container(height: 20.0),
-            // Container(height: 50.0),
           ],
         ),
       ),
